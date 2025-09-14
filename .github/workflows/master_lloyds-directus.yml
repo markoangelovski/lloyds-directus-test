@@ -24,7 +24,6 @@ jobs:
       - name: Log in to container registry
         uses: docker/login-action@v2
         with:
-          registry: https://index.docker.io/
           username: ${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_59D9A5CA2298405CA3A046C67EC4C91C }}
           password: ${{ secrets.AZUREAPPSERVICE_CONTAINERPASSWORD_A2CBE948F1E342D4BD736E78EF74019B }}
 
@@ -33,7 +32,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: index.docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_59D9A5CA2298405CA3A046C67EC4C91C }}/lloyds-directus:${{ github.sha }}
+          tags: ${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_59D9A5CA2298405CA3A046C67EC4C91C }}/lloyds-directus:${{ github.sha }}
           file: ./Dockerfile
 
   deploy:
@@ -59,5 +58,5 @@ jobs:
         with:
           app-name: 'lloyds-directus'
           slot-name: 'Production'
-          images: 'index.docker.io/${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_59D9A5CA2298405CA3A046C67EC4C91C }}/lloyds-directus:${{ github.sha }}'
+          images: '${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_59D9A5CA2298405CA3A046C67EC4C91C }}/lloyds-directus:${{ github.sha }}'
           
