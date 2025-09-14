@@ -24,15 +24,15 @@ jobs:
       - name: Log in to container registry
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_2174755C660740EDAF41071359DF8BC0 }}
-          password: ${{ secrets.AZUREAPPSERVICE_CONTAINERPASSWORD_20A49B6D68BD407CBEA7F5F2EA0EA97B }}
+          username: ${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_59D9A5CA2298405CA3A046C67EC4C91C }}
+          password: ${{ secrets.AZUREAPPSERVICE_CONTAINERPASSWORD_A2CBE948F1E342D4BD736E78EF74019B }}
 
       - name: Build and push container image to registry
         uses: docker/build-push-action@v3
         with:
           context: .
           push: true
-          tags: ${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_2174755C660740EDAF41071359DF8BC0 }}/lloyds-directus:${{ github.sha }}
+          tags: ${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_59D9A5CA2298405CA3A046C67EC4C91C }}/lloyds-directus:${{ github.sha }}
           file: ./Dockerfile
 
   deploy:
@@ -48,9 +48,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_49369B4F7E87417B8DC20A3CE869C726 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_E444B8B9E3874FE4B3A174C22232D8CA }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F51FEE207A5247439B901A8742AD31C1 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_77D194DA54B84BF5852A7B68767E6365 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_E0DDE28089874D84B1F767DDC3128101 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_83DD2A8E0A6E448ABD4D4D4C043FC695 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -58,5 +58,5 @@ jobs:
         with:
           app-name: 'lloyds-directus'
           slot-name: 'Production'
-          images: '${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_2174755C660740EDAF41071359DF8BC0 }}/lloyds-directus:${{ github.sha }}'
+          images: '${{ secrets.AZUREAPPSERVICE_CONTAINERUSERNAME_59D9A5CA2298405CA3A046C67EC4C91C }}/lloyds-directus:${{ github.sha }}'
           
