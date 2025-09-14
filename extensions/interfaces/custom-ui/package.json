@@ -1,0 +1,15 @@
+{
+  "name": "custom-ui-interface",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "directus-extension build"
+  },
+  "devDependencies": {
+    "@directus/extensions-sdk": "latest"
+  },
+  "directus:extension": {
+    "type": "interface",
+    "source": "./src/index.vue"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "weather-panel",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "directus-extension build"
+  },
+  "devDependencies": {
+    "@directus/extensions-sdk": "latest"
+  },
+  "directus:extension": {
+    "type": "panel",
+    "source": "./src/index.tsx"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "hello-world-endpoint",
+  "version": "1.0.0",
+  "type": "module",
+  "directus:extension": {
+    "type": "endpoint"
+  }
+}

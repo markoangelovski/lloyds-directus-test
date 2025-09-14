@@ -1,0 +1,20 @@
+# Git & metadata
+.git
+.gitignore
+.dockerignore
+
+# Node modules (rebuilt inside container)
+**/node_modules
+
+# Local environment
+.env
+.env.local
+
+# Local database data
+data/
+
+# OS / Editor junk
+.DS_Store
+Thumbs.db
+.vscode
+.idea
