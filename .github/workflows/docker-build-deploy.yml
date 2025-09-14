@@ -42,7 +42,7 @@ jobs:
           labels: ${{ steps.docker_meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          platforms: linux/amd
+          platforms: linux/amd64
 
   # deploy:
   #   runs-on: ubuntu-latest
